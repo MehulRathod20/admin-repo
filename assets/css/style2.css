@@ -1,0 +1,28 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	text-transform: capitalize;
+}
+nav.navbar.navbar-expand-lg {
+    background-color: white;
+}
+.navbar-brand img {
+    width: 170px;
+    height: 50px;
+}
+
+a.nav-link{
+    color: black;
+    font-size: 21px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+a.nav-link:hover{
+	border-bottom: 2px solid black;
+	padding-bottom:3px;
+	color: black;
+	cursor: pointer;
+}

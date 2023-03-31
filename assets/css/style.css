@@ -1,0 +1,89 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap');
+
+
+*{
+	text-transform: capitalize;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body{
+	background-image: url(https://burst.shopifycdn.com/photos/misty-mountain-ranges-at-sunrise.jpg?width=1200&format=pjpg&exif=1&iptc=1);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+ }
+ form{
+	border: 5px solid white;
+	border-radius: 11px;
+    padding: 2rem 1rem;
+    background-color: hsla(0,0%,10%,0.1);
+    backdrop-filter: blur(10px);
+ }
+ .form-login{
+ 	color: white;
+ }
+ .form-label {
+    margin-bottom: 0.5rem;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 1rem;
+ 	color: white;
+
+}
+
+input.form-control {
+    border-radius: 11px;
+}
+textarea.textarea{
+    resize: none;
+}
+.form-icon i {
+    font-size: 21px;
+    position: relative;
+    top: 43px;
+    right: 85px;
+}
+.submit-btn {
+    background-color:white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 11PX;
+    text-transform: capitalize;
+    font-size: 20px;
+    width:150PX;
+     line-height: 25px; 
+}
+.submit-btn:hover{
+	background-color: black;
+	color: white;
+	cursor: pointer;
+    padding: 0.5rem;
+	transition:0.7s;
+}
+.forget-pass{
+  line-height: 50px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+	-webkit-appearance:none;
+	margin: 0;
+}
+
+/*registration css*/
+
+.registration-box{
+	width:700px;
+	height:auto;
+	margin-top: 1rem;
+	margin: auto;
+	padding: 0.8rem;
+}
+.radio-btn{
+    width: auto !important;
+    height: auto!important;
+}
+
+/*admin*/
