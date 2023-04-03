@@ -430,38 +430,57 @@
                     <div class="col-12 col-md-4">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">header upload</h5>
+                                <h5 class="card-title">update</h5>
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <!-- Basic file uploader -->
-                                    <form action="upload-image.php" method="POST" enctype="multipart/form-data">
-                                    <input type="file"name="fileToUpload" class="basic-filepond">
-                                    <button  class="btn btn-primary mt-3" name="">upload</button>
-                                </form>
-                                </div>
-                            </div>
+                                    <?php
+
+                                    include "config.php";
+
+                                    $sql = "SELECT * FROM headerimage";
+
+                                    $result = mysqli_query($conn,$sql) or die("query failed.");
+
+                                    if(mysqli_num_rows($result) > 0){
+
+                                        while($row = mysqli_fetch_assoc($result)){
+                                    
+                                    ?>
+                                    <form action="update-image.php" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <input type="hidden" name="id"  class="form-control" value="<?php echo $row['id'];?>" placeholder="">
+                                        </div>
+                                        <label for=""> image</label>
+                                        <input type="file" name="new-image">
+                                        <img  src="admin-panel/admin/upload/<?php echo $row['image'];?>" class="img-fluid">
+                                        <input type="" name="old-image" value="<?php echo $row['image'];?>">
+                                        <button  class="btn btn-primary mt-3" name="update">update</button>
+                                    </form>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title">footer upload</h5>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <!-- Basic file uploader -->
-                                    <form action="upload-image.php" method="POST" enctype="multipart/form-data">
-                                    <input type="file"name="fileToUpload" class="basic-filepond">
-                                    <button  class="btn btn-primary mt-3" name="">upload</button>
-                                </form>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">footer upload</h5>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <!-- Basic file uploader -->
+                            <form action="upload-image.php" method="POST" enctype="multipart/form-data">
+                                <input type="file"name="fileToUpload" class="basic-filepond">
+                                <button  class="btn btn-primary mt-3" name="">upload</button>
+                            </form>
                         </div>
                     </div>
-
-            <!--table-->
-
+                </div>
+            </div>
 
            <!--  <footer>
                 <div class="footer clearfix mb-0 text-muted">
