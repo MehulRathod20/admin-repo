@@ -369,7 +369,7 @@
                                     <a href="header-image-upload.php">image</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-500.php">500</a>
+                                    <a href="Add-footer-menu.php">Footer</a>
                                 </li>
                             </ul>
                             </li>
@@ -418,9 +418,6 @@
                   <div class="col-md-2 mb-3">
                      <button class="btn btn-primary" id="add">add</button>
                   </div>
-                  <div class="col-md-2 mb-3">
-                     <button class="btn btn-primary">Update</button>
-                  </div>
                </div>
                <div class="row">
                   <div class="col-md-6 col-12">
@@ -435,13 +432,13 @@
                                     <div class="row">
                                        <div class="col-12">
                                           <div class="form-group">
-                                             <label for="first-name-vertical">Main Menu</label>
+                                             <label for="">Main Menu</label>
                                              <input type="text" id="menu"class="form-control mt-2" name="menu"placeholder="Enter Menu Name">
                                           </div>
                                        </div>
                                        <div class="col-12">
                                           <div class="form-group">
-                                             <label for="email-id-vertical">Sub Menu</label>
+                                             <label for="">Sub Menu</label>
                                              <input type="text" id="submenu"
                                              class="form-control mt-2" name="submenu"
                                              placeholder="Enter Sub-Menu Name">
@@ -504,7 +501,7 @@
                                        <td><?php echo $row['menu'];?></td>
                                        <td class="text-bold-500">-</td>
                                        <td>
-                                          <a href="?id=<?php echo $row['id'];?>" class="me-4 text-primary"><i class="bi bi-pencil-square"></i></a>
+                                          <a href="edit-menu.php?id=<?php echo $row['id'];?>" type="button" class="me-4 " id="" ><i class="bi bi-pencil-square"></i></a>
                                           <a href="delete-header-menu.php?id=<?php echo $row['id'];?>" class="text-danger"><i class="bi bi-trash"></i></a>
                                        </td>
                                        </tr>
@@ -524,6 +521,7 @@
                </section>
                 <!-- Table head options end -->
 
+               
            <!--  <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
@@ -551,7 +549,9 @@
          $("#add").click(function () {
             $("#card").toggle(200);
          });
-      });
+     });
+    </script>
+    <!--update-->
     </script>
 </body>
 

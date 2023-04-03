@@ -366,7 +366,7 @@
                                     <a href="header-image-upload.php">Image</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="error-500.php">500</a>
+                                    <a href="footer-setting.php">Footer</a>
                                 </li>
                             </ul>
                             </li>

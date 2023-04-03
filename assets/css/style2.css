@@ -6,8 +6,18 @@
 	scroll-behavior: smooth;
 	text-transform: capitalize;
 }
+:root{
+	--lb-main-color:#f0f8ff7d;
+	--lb-black:#222;
+	--lb-white:#FFF;
+	--lb-whatsapp:#44e144;
+	--lb-border:.1rem solid var(--black);
+	--lb-box-shadow:0.5rem 1rem rgba(0,0,0,.1);
+	--lb-text-shadow:0 1.5rem 3rem rgba(0,0,0,.1);
+
+}
 nav.navbar.navbar-expand-lg {
-    background-color: white;
+    background-color:var(--lb-main-color);
 }
 .navbar-brand img {
     width: 170px;
@@ -15,14 +25,51 @@ nav.navbar.navbar-expand-lg {
 }
 
 a.nav-link{
-    color: black;
-    font-size: 21px;
+    color: var(--lb-black);
+    font-size:18px;
     margin-left: 10px;
     letter-spacing: 1px;
 }
 a.nav-link:hover{
 	border-bottom: 2px solid black;
 	padding-bottom:3px;
-	color: black;
+	color: var(--lb-black);
 	cursor: pointer;
 }
+
+
+/*main*/
+.main{
+    height:60vh;
+    margin-top: 10px;
+    background-color:var(--lb-white);
+}
+
+/*footer*/
+.footer{
+	background-color:var(--lb-main-color);
+}
+.footer-logo img{
+	text-align: center;
+}
+ ul{
+	list-style: none;
+}
+.footer-menu ul li a{
+	color:var(--lb-black);
+	text-decoration: none;
+	list-style: none;
+}
+.footer-menu ul li a:hover{
+	color: var(--lb-black);
+	text-decoration: none;
+	list-style: none;
+}
+
+.social-icon a i {
+    background-color:var(--lb-whatsapp);
+    color:var(--lb-white);
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
