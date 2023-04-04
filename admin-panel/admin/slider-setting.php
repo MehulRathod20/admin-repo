@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - LTTRBX Admin Dashboard</title>
+    <title>Dashboard - LTTRBX Admin Dashboard</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 
-    <!--jquery-->
-   <script src="https://code.jquery.com/jquery-3.6.4.js"integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="crossorigin="anonymous"></script>
+  
 </head>
 
 <body>
@@ -366,10 +365,13 @@
                                     <a href="header-setting.php">Header</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="header-image-upload.php">image</a>
+                                    <a href="header-image-upload.php">Image</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="Add-footer-menu.php">Footer</a>
+                                    <a href="footer-setting.php">Footer</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="slider-setting.php">slider</a>
                                 </li>
                             </ul>
                             </li>
@@ -411,70 +413,39 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
+
             
-            <!--footer add -->
+            <!--upload header image -->
             <div class="container">
-               <div class="row">
-                  <div class="col-md-2 mb-3">
-                     <button class="btn btn-primary" id="add">add</button>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-6 col-12">
-                     <div class="card" id="card">
-                        <div class="card-header">
-                           <h4 class="card-title">Add footer Menu</h4>
-                        </div>
-                        <div class="card-content">
-                           <div class="card-body">
-                              <form action="Add-footer-menu.php" method="POST"class="form form-vertical">
-                                 <div class="form-body">
-                                    <div class="row">
-                                       <div class="col-12">
-                                          <div class="form-group">
-                                             <label for="">Main Menu</label>
-                                             <input type="text" id="menu"class="form-control mt-2" name="menu"placeholder="Enter Menu Name">
-                                          </div>
-                                       </div>
-                                       <div class="col-12">
-                                          <div class="form-group">
-                                             <label for="">Sub Menu</label>
-                                             <input type="text" id="submenu"
-                                             class="form-control mt-2" name="submenu"
-                                             placeholder="Enter Sub-Menu Name">
-                                          </div>
-                                       </div>
-                                       <div class="col-12">
-                                          <div class="form-group">
-                                             <label for="">Copy right text</label>
-                                             <input type="text" id="text"
-                                             class="form-control mt-2" name="copyright"
-                                             placeholder="Enter copy right text">
-                                          </div>
-                                       </div>
-                                       <div class="col-12 d-flex justify-content-end">
-                                          <button type="submit"
-                                          class="btn btn-primary me-1 mb-1" name="submit">Submit</button>
-                                       </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">upload</h5>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                  <form action="insert-slider.php" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <input type="hidden" name="id"  class="form-control" value="" placeholder="">
                                     </div>
-                                 </div>
-                              </form>
-                           </div>
+                                    <input type="file" name="fileslide">
+                                    <button  class="btn btn-primary mt-3" name="submit">upload</button>
+                                </form>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            
-
-            <!-- Table head options start -->
-           <!--  <section class="section">
+        <!-- slider start -->
+            <section class="section">
                <div class="row" id="table-head">
                   <div class="col-12">
                      <div class="card">
                         <div class="card-header">
-                           <h4 class="card-title">Footer Menu</h4>
+                           <h4 class="card-title">slider image</h4>
                         </div>
                         <div class="card-content">
                            <div class="card-body">
@@ -486,7 +457,7 @@
                               <?php
                               include "config.php";
 
-                              $sql="SELECT * FROM footermenu";
+                              $sql="SELECT * FROM  slider";
 
                               $result=mysqli_query($conn,$sql);
 
@@ -497,9 +468,7 @@
                                  <thead class="thead-dark">
                                     <tr>
                                        <th>Id</th>
-                                       <th>Main-menu</th>
-                                       <th>Sub-menu</th>
-                                       <th>Copyright</th>
+                                       <th>image</th>
                                        <th>ACTION</th> 
                                     </tr>
                                  </thead>
@@ -509,13 +478,10 @@
                                     ?>
                                     <tr>
                                        <td class="text-bold-500"><?php echo $row['id'];?></td>
-                                       <td><?php echo $row['menu'];?></td>
-                                       <td><?php echo $row['submenu'];?></td>
-                                       <td><?php echo $row['copyright'];?></td>
-                                       <!-- <td class="text-bold-500">-</td> -->
+                                       <td><?php echo $row['slider_img'];?></td>
                                        <td>
-                                          <a href="footer-edit-menu.php?id=<?php echo $row['id'];?>" class="me-4 text-primary"><i class="bi bi-pencil-square"></i></a>
-                                          <a href="delete-footer-menu.php?id=<?php echo $row['id'];?>" class="text-danger"><i class="bi bi-trash"></i></a>
+                                          <a href="" type="button" class="me-4" id="slider"data-bs-toggle="modal" data-bs-target="#myModal" ><i class="bi bi-pencil-square"></i></a>
+                                          <a href="?id=<?php echo $row['id'];?>" class="text-danger"><i class="bi bi-trash"></i></a>
                                        </td>
                                        </tr>
                                        <?php
@@ -532,9 +498,31 @@
                      </div>
                   </div>
                </section>
-                <!-- Table head options end --> -->
+                <!-- Table head options end -->
 
-           <!--  <footer>
+                <!-- modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+
+          
+
+          <!--   <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
                         <p>2021 &copy; Mazer</p>
@@ -552,17 +540,17 @@
 
     <script src="assets/vendors/apexcharts/apexcharts.js"></script>
     <script src="assets/js/pages/dashboard.js"></script>
-
     <script src="assets/js/main.js"></script>
-
-    <!--jquery code-->
+      <script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
     <script type="text/javascript">
-      $(document).ready(function () {
-         $("#add").click(function () {
-            $("#card").toggle(200);
-         });
-      });
+       $(document).ready(function(){
+        $("#slider").click(function(){
+            $("#myModal").show();
+        });
+    });
     </script>
 </body>
-
 </html>

@@ -368,6 +368,9 @@
                                 <li class="submenu-item ">
                                     <a href="footer-setting.php">Footer</a>
                                 </li>
+                                <li class="submenu-item ">
+                                    <a href="slider-setting.php">slider</a>
+                                </li>
                             </ul>
                             </li>
                              

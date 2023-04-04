@@ -15,6 +15,8 @@
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
 	<!--responsive-->
 	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
@@ -79,12 +81,37 @@
 	<section class="main" id="main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<h3>main</h3>
-				</div>
-			</div>
+				<!-- Swiper -->
+				<?php
+
+				include 'config.php';
+
+				$sql="SELECT * FROM slider";
+
+				$result=mysqli_query($conn,$sql);
+
+				if (mysqli_num_rows($result)) {
+
+					?>
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+							<?php
+							while($row=mysqli_fetch_assoc($result)){
+								?>
+								<div class="swiper-slide">
+									<img src="admin-panel/admin/upload/<?php echo $row['slider_img'];?>" class="" width="250px" height="200px">
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+					<?php
+				}
+			?>
 		</div>
-	</section>
+	</div>
+</section>
 
 	<!--footer start-->
 	<section class="footer py-4 mt-5">
@@ -113,13 +140,15 @@
 
 			<div class="row mt-5">
 				<?php
-				include "config.php";
-				$sql="SELECT * FROM footermenu";
-				$result=mysqli_query($conn,$sql)or die("sql query failed");
-				if (mysqli_num_rows($result)>0) {
-					while($row=mysqli_fetch_assoc($result)){
-						?>
-						<div class="col-md-3">
+						include "config.php";
+						$sql="SELECT headermenu.menu FROM headermenu LEFT JOIN footermenu ON  footermenu.link ORDER BY footermenu.id";
+
+						$result=mysqli_query($conn,$sql)or die("sql query failed");
+						if (mysqli_num_rows($result)>0) {
+							while($row=mysqli_fetch_assoc($result)){
+								
+								?>
+						<div class="col-md-2">
 							<div class="footer-menu">
 								<ul>
 									<li class="list-style-none"><a href="#"><?php echo $row['menu'];?></a></li>
@@ -130,11 +159,11 @@
 					}
 				}
 				?>
-				<div class="col-md-3">
+				   <div class="col-md-2">
 					<div class="social-icon">
 						<a href="#"><i class="fa-brands fa-whatsapp"></i></a>
 					</div>
-				</div>
+				</div> 
 			</div>
 		</div>
 	</section>	
@@ -166,8 +195,31 @@
 		</div>
 	</div>
 
+
+
+
 <!--boostrap script-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+ <!-- Initialize Swiper -->
+ <script>
+    var swiper = new Swiper(".mySwiper", {
+
+    	 direction: 'horizontal',
+       parallax: true,
+       slidesPerView: 4,
+       speed: 600,
+       autoHeight: true,
+       spaceBetween: 30,
+       autoplay: {
+       delay: 500,
+       disableOnInteraction: false,
+      },
+        
+
+    });
+  </script>
+ 
 </body>
 </html>

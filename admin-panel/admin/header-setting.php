@@ -369,7 +369,10 @@
                                     <a href="header-image-upload.php">image</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="Add-footer-menu.php">Footer</a>
+                                    <a href="footer-setting.php">Footer</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="slider-setting.php">Slider</a>
                                 </li>
                             </ul>
                             </li>
